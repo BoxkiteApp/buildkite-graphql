@@ -1,15 +1,15 @@
 //
-//  Buildkite_GraphQLTests.swift
-//  Buildkite-GraphQLTests
+//  BuildkiteGraphQLTests.swift
+//  BuildkiteGraphQLTests
 //
 //  Created by Matthew Delves on 26/03/2016.
 //  Copyright © 2016 BoxkiteApp. All rights reserved.
 //
 
 import XCTest
-@testable import Buildkite_GraphQL
+@testable import BuildkiteGraphQL
 
-class Buildkite_GraphQLTests: XCTestCase {
+class BuildkiteGraphQLTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
