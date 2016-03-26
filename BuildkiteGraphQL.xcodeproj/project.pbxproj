@@ -10,6 +10,8 @@
 		C97617F41CA67A5600AF0DAE /* BuildkiteGraphQL.h in Headers */ = {isa = PBXBuildFile; fileRef = C97617F31CA67A5600AF0DAE /* BuildkiteGraphQL.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C97617FB1CA67A5600AF0DAE /* BuildkiteGraphQL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C97617F01CA67A5600AF0DAE /* BuildkiteGraphQL.framework */; };
 		C97618001CA67A5600AF0DAE /* BuildkiteGraphQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97617FF1CA67A5600AF0DAE /* BuildkiteGraphQLTests.swift */; };
+		C9E996291CA67D9F0003754C /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E996271CA67D9F0003754C /* Nimble.framework */; };
+		C9E9962A1CA67D9F0003754C /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E996281CA67D9F0003754C /* Quick.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +31,8 @@
 		C97617FA1CA67A5600AF0DAE /* BuildkiteGraphQLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuildkiteGraphQLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C97617FF1CA67A5600AF0DAE /* BuildkiteGraphQLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildkiteGraphQLTests.swift; sourceTree = "<group>"; };
 		C97618011CA67A5600AF0DAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9E996271CA67D9F0003754C /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = SOURCE_ROOT; };
+		C9E996281CA67D9F0003754C /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C97617FB1CA67A5600AF0DAE /* BuildkiteGraphQL.framework in Frameworks */,
+				C9E996291CA67D9F0003754C /* Nimble.framework in Frameworks */,
+				C9E9962A1CA67D9F0003754C /* Quick.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,10 +86,20 @@
 		C97617FE1CA67A5600AF0DAE /* BuildkiteGraphQLTests */ = {
 			isa = PBXGroup;
 			children = (
+				C9E996261CA67D7A0003754C /* frameworks */,
 				C97617FF1CA67A5600AF0DAE /* BuildkiteGraphQLTests.swift */,
 				C97618011CA67A5600AF0DAE /* Info.plist */,
 			);
 			path = BuildkiteGraphQLTests;
+			sourceTree = "<group>";
+		};
+		C9E996261CA67D7A0003754C /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C9E996271CA67D9F0003754C /* Nimble.framework */,
+				C9E996281CA67D9F0003754C /* Quick.framework */,
+			);
+			name = frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -125,6 +141,7 @@
 				C97617F61CA67A5600AF0DAE /* Sources */,
 				C97617F71CA67A5600AF0DAE /* Frameworks */,
 				C97617F81CA67A5600AF0DAE /* Resources */,
+				C9E9962C1CA67E1F0003754C /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -188,6 +205,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C9E9962C1CA67E1F0003754C /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Quick.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Nimble.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C97617EB1CA67A5600AF0DAE /* Sources */ = {
@@ -342,6 +377,10 @@
 		C97618081CA67A5600AF0DAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BuildkiteGraphQLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boxkiteapp.BuildkiteGraphQLTests;
@@ -352,6 +391,10 @@
 		C97618091CA67A5600AF0DAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = BuildkiteGraphQLTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.boxkiteapp.BuildkiteGraphQLTests;
@@ -378,6 +421,7 @@
 				C97618061CA67A5600AF0DAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C97618071CA67A5600AF0DAE /* Build configuration list for PBXNativeTarget "BuildkiteGraphQLTests" */ = {
 			isa = XCConfigurationList;
@@ -386,6 +430,7 @@
 				C97618091CA67A5600AF0DAE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
