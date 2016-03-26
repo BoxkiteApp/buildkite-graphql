@@ -1,0 +1,12 @@
+{ "query": "query ComplexQuery {
+   viewer {
+     organizations {
+       edges {
+         node {
+           name
+         }
+       }
+     }
+   }
+ }"
+}

@@ -1,0 +1,31 @@
+{ "query": "query ComplexQuery {
+   viewer {
+     user {
+       name
+     }
+     organizations {
+       edges {
+         node {
+           name
+           pipelines {
+             edges {
+               node {
+                 name
+                 repository
+                 builds(first: 10) {
+                   edges {
+                     node {
+                       number
+                       message
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   }
+ }"
+}

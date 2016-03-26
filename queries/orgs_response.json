@@ -1,0 +1,25 @@
+{
+  "data": {
+    "viewer": {
+      "organizations": {
+        "edges": [
+          {
+            "node": {
+              "name": "mattdelves"
+            }
+          },
+          {
+            "node": {
+              "name": "Reformed Software"
+            }
+          },
+          {
+            "node": {
+              "name": "Boxkite Test Org 📱"
+            }
+          }
+        ]
+      }
+    }
+  }
+}
